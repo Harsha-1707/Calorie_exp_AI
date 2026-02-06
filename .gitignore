@@ -154,6 +154,4 @@ cython_debug/
 .vscode/
 
 # Project specific
-exercises.csv
-calories.csv
-model.pkl
+# (Removed CSVs and model.pkl from ignore to include them in the repo)
