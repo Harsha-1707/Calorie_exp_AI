@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Cruncher</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Calorie Cruncher</h1>
+        <p>Predict your calorie expenditure with AI</p>
+      </header>
+
+      <main>
+        <form id="prediction-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="gender">Gender</label>
+              <select id="gender" name="Gender" required>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Age (years)</label>
+              <input
+                type="number"
+                id="age"
+                name="Age"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="height">Height (cm)</label>
+              <input
+                type="number"
+                id="height"
+                name="Height"
+                min="50"
+                max="300"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="weight">Weight (kg)</label>
+              <input
+                type="number"
+                id="weight"
+                name="Weight"
+                min="20"
+                max="500"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="duration">Duration (min)</label>
+              <input
+                type="number"
+                id="duration"
+                name="Duration"
+                min="1"
+                max="300"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="heart_rate">Heart Rate (bpm)</label>
+              <input
+                type="number"
+                id="heart_rate"
+                name="Heart_Rate"
+                min="40"
+                max="220"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="body_temp">Body Temp (°C)</label>
+              <input
+                type="number"
+                id="body_temp"
+                name="Body_Temp"
+                step="0.1"
+                min="30"
+                max="45"
+                required
+              />
+            </div>
+          </div>
+
+          <button type="submit" id="predict-btn">
+            <span>Calculate Calories</span>
+            <div class="loader" id="loader"></div>
+          </button>
+        </form>
+
+        <div id="result-container" class="hidden">
+          <h2>Burned Calories</h2>
+          <div class="result-value" id="result-value">0</div>
+          <p>kcal</p>
+        </div>
+      </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
